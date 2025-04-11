@@ -1,0 +1,51 @@
+body {
+  font-family: "Pretendard", Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  color: #000;
+  background: #fff;
+  line-height: 1.4;
+}
+
+:root {
+  --sidePadding: 8rem;
+  @media (max-width: 1440px) {
+    --sidePadding: 5rem;
+  }
+  @media (max-width: 1024px) {
+    --sidePadding: 3rem;
+  }
+}
+
+#wrap {
+  overflow-x: hidden;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-left: var(--sidePadding);
+  padding-right: var(--sidePadding);
+}
+
+.title {
+  font-size: 8rem;
+  @media (max-width: 1024px) {
+    font-size: 6rem;
+  }
+}
+
+.desc {
+  font-size: 2.4rem;
+}
+
+.fade-in-box {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

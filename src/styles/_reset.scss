@@ -1,0 +1,262 @@
+// _reset.scss or _base.scss
+@use "./fonts";
+
+// ==========================
+// 기본 리셋 스타일
+// ==========================
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+// HTML5 display-role reset for older browsers
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+
+  &::before,
+  &::after {
+    content: "";
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// ==========================
+// 공통 설정
+// ==========================
+html {
+  font-size: 62.5%;
+  font-family: "Pretendard", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  color: #111;
+  word-break: keep-all;
+  word-wrap: break-word;
+
+  @media screen and (max-width: 1536px) {
+    font-size: 60%;
+  }
+  @media screen and (max-width: 1440px) {
+    font-size: 58%;
+  }
+  @media screen and (max-width: 1280px) {
+    font-size: 56%;
+  }
+  @media screen and (max-width: 1024px) {
+    font-size: 52%;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 50%;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 48%;
+  }
+  @media screen and (max-width: 380px) {
+    font-size: 45%;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(255, 200, 1, 0.5);
+  }
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  appearance: none;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  font: inherit;
+}
+
+button,
+input[type="button"] {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 1em;
+  color: inherit;
+  border-radius: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin: 0;
+  vertical-align: middle;
+  appearance: none;
+}
+
+label {
+  vertical-align: middle;
+}
+
+select {
+  border: 1px solid #ccc;
+  border-radius: 0;
+  appearance: none;
+  font: inherit;
+  font-size: 1em;
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+button,
+label {
+  cursor: pointer;
+}
+
+address,
+em {
+  font-style: normal;
+}
+
+// ==========================
+// 시각적 숨김 처리
+// ==========================
+.hide,
+.hidden,
+.caption,
+.legend,
+.sr-only {
+  position: absolute;
+  left: -300px;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
+  line-height: 0;
+  overflow: hidden;
+}

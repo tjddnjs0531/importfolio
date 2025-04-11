@@ -1,0 +1,31 @@
+// _mixins.scss
+@mixin flex(
+  $justify: flex-start,
+  $align: flex-start,
+  $direction: row,
+  $gap: 0,
+  $wrap: nowrap
+) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: $gap;
+  flex-wrap: $wrap;
+}
+
+@mixin position-center($position: absolute) {
+  position: $position;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+@mixin image-bg($url, $size: auto) {
+  background: url($url) no-repeat center / $size;
+}

@@ -1,0 +1,181 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+$scroll-size: 18rem;
+$scroll-inner: 14rem;
+#visual {
+  position: relative;
+  height: 880px;
+  @include flex(center, center);
+  flex-direction: column;
+
+  .typing-wrap {
+    font-size: 4rem;
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    line-height: 1.2;
+
+    @media (max-width: 768px) {
+      font-size: 3.5vw;
+    }
+  }
+
+  .slogun {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+
+    &::after {
+      content: "|";
+      position: absolute;
+      right: -15px;
+      top: 0;
+      animation: blink 0.8s step-end infinite;
+    }
+  }
+
+  .pub {
+    position: relative;
+    margin: 2rem 0;
+    --size: 10rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 100%;
+      width: var(--size);
+      height: var(--size);
+      @include image-bg("");
+      animation: face1 1s steps(1, end) infinite;
+    }
+
+    @media (max-width: 1280px) {
+      padding-right: var(--size);
+
+      &::after {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+
+  .desc {
+    text-align: center;
+  }
+
+  .since {
+    position: absolute;
+    bottom: 4rem;
+    left: var(--sidePadding);
+    @include flex(center, center);
+
+    &::before {
+      content: "";
+      width: 8rem;
+      height: 40px;
+      @include image-bg("/img/twingkle3.svg");
+      margin-right: 10px;
+    }
+
+    &::after {
+      content: "";
+      width: 10rem;
+      height: 1px;
+      background: $color-black;
+      order: 2;
+      margin: 0 20px;
+    }
+
+    span {
+      display: block;
+
+      &:nth-child(1) {
+        order: 1;
+      }
+
+      &:nth-child(2) {
+        order: 3;
+      }
+    }
+  }
+  .scroll-btn {
+    @include position-center;
+    bottom: -9rem;
+    width: $scroll-size;
+    height: $scroll-size;
+    background: #fff;
+    @include circle($scroll-size);
+    @include flex(center, center);
+    z-index: 1;
+
+    &-txt {
+      position: absolute;
+      bottom: 96%;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      width: 14.5rem;
+    }
+
+    &-link {
+      position: relative;
+      @include circle($scroll-inner);
+      color: $color-black;
+
+      a {
+        @include flex(center, center);
+        position: relative;
+        @include circle($scroll-inner);
+        color: $color-black;
+
+        &::before {
+          content: "";
+          position: absolute;
+          @include circle(100%);
+          border: 1px dashed $color-black;
+          animation: rotationReverse 40s linear infinite;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          @include circle(100%);
+          @include image-bg("/img/arrow_down.svg");
+        }
+      }
+    }
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+}
+
+// 애니메이션
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes face1 {
+  0%,
+  49% {
+    background-image: url("/img/face1.svg");
+  }
+  50%,
+  100% {
+    background-image: url("/img/face1_hover.svg");
+  }
+}
+
+@keyframes rotationReverse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,61 @@
+@use "../styles/variables" as *;
+
+#header {
+  --h: 13rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  height: var(--h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--sidePadding);
+  mix-blend-mode: difference;
+  z-index: 99999;
+  transition: 0.5s;
+
+  &.active {
+    top: -150px !important;
+  }
+
+  & > p {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $color-white;
+  }
+
+  @media (max-width: 1280px) {
+    --h: 10rem;
+  }
+
+  @media (max-width: 768px) {
+    --h: 8rem;
+  }
+
+  @media (max-width: 480px) {
+    justify-content: center;
+    & > p {
+      display: none;
+    }
+  }
+
+  & #gnb ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & #gnb li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--h);
+    padding: 0 1.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: $color-white;
+  }
+}
