@@ -48,7 +48,7 @@ const Visual = () => {
         </div>
         <div className="scroll-btn-link">
           <a href="#about">
-            <desc className="hide">scroll down</desc>
+            <p className="hide">scroll down</p>
           </a>
         </div>
       </div>

@@ -1,0 +1,311 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+#about {
+  background: #000 url("/img/bg-about.svg") no-repeat left var(--sidePadding)
+    bottom;
+  padding: 200px 0;
+
+  .title {
+    position: relative;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto 3.5rem;
+    color: #fff;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 110%;
+      transform: translateY(-50%);
+      width: 100px;
+      height: 100px;
+      background: url("") no-repeat center / 100%;
+      animation: face2 1s steps(1, end) infinite;
+    }
+  }
+
+  .desc {
+    text-align: center;
+    color: #999;
+  }
+
+  .introduce.desc {
+    color: #999;
+    width: 50%;
+    margin-left: auto;
+    text-align: left;
+    word-break: keep-all;
+
+    & p + p {
+      margin-top: 40px;
+    }
+  }
+
+  .skill-wrap {
+    margin-top: 80px;
+    background: url("/img/bg-skill.png") repeat-x left center / auto 100%;
+
+    ul {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    li {
+      &:nth-child(1) .in {
+        width: 160px;
+        height: 54.4rem;
+      }
+      &:nth-child(2) .in {
+        width: 20.7rem;
+        height: 50.8rem;
+      }
+      &:nth-child(3) .in {
+        width: 8rem;
+        height: 59.9rem;
+      }
+      &:nth-child(4) .in {
+        width: 7rem;
+        height: 39rem;
+      }
+      &:nth-child(5) .in {
+        width: 10.8rem;
+        height: 44rem;
+      }
+      &:nth-child(6) .in {
+        width: 6.9rem;
+        height: 49.9rem;
+      }
+
+      .in:hover {
+        width: 36rem;
+        background: #fef104;
+      }
+
+      &:nth-child(1) .barcode {
+        height: 9rem;
+      }
+      &:nth-child(2) .barcode {
+        height: 4rem;
+      }
+      &:nth-child(3) .barcode {
+        height: 1.1rem;
+      }
+      &:nth-child(4) .barcode {
+        height: 1.9rem;
+      }
+      &:nth-child(5) .barcode {
+        height: 1.9rem;
+      }
+      &:nth-child(6) .barcode {
+        height: 0.3rem;
+      }
+    }
+
+    .in {
+      background: #fff;
+      transition: all 0.3s ease-in;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 3rem 1rem 1rem;
+
+      &:hover {
+        .num {
+          opacity: 1;
+          visibility: visible;
+          height: auto;
+          transition: all 0.3s linear 0.3s;
+        }
+
+        &:not(:hover) .num {
+          transition: all 0.1s linear;
+        }
+      }
+    }
+
+    .subj {
+      font-size: 4rem;
+      font-weight: 900;
+      writing-mode: vertical-rl;
+      margin-left: auto;
+
+      > span {
+        font-weight: 400;
+      }
+    }
+
+    .num {
+      font-size: 12rem;
+      line-height: 1;
+      opacity: 0;
+      visibility: hidden;
+      height: 0;
+      transition: all 0s linear;
+
+      > span {
+        font-size: 1em / 3; // 0.3333em
+      }
+    }
+
+    .barcode {
+      display: block;
+      width: 100%;
+      background: url("/img/barcode.svg") repeat-x left;
+    }
+  }
+
+  .name {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #fff;
+    margin: 180px 0 0;
+
+    li {
+      width: 50%;
+      font-size: 2.4rem;
+      color: #fff;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    padding-top: 100px;
+
+    .desc {
+      font-size: 2.5vw;
+    }
+
+    .skill-wrap {
+      ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .in {
+        padding-top: 2rem;
+      }
+
+      li {
+        width: 100%;
+
+        &:nth-child(1) .in {
+          height: 24rem;
+          width: 70%;
+        }
+        &:nth-child(2) .in {
+          height: 19rem;
+          width: 60%;
+        }
+        &:nth-child(3) .in {
+          height: 17rem;
+          width: 80%;
+        }
+        &:nth-child(4) .in {
+          height: 18rem;
+          width: 50%;
+        }
+        &:nth-child(5) .in {
+          height: 18rem;
+          width: 60%;
+        }
+        &:nth-child(6) .in {
+          height: 16rem;
+          width: 80%;
+        }
+
+        .in:hover {
+          width: 100%;
+        }
+      }
+
+      .subj {
+        writing-mode: initial;
+      }
+
+      .num {
+        font-size: 6rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .skill-wrap {
+      .subj {
+        font-size: 5vw;
+      }
+
+      .num {
+        font-size: 6.5vw;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .title::after {
+      width: 8rem;
+      height: 8rem;
+    }
+
+    .desc {
+      font-size: 3vw;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    .introduce.desc {
+      width: 70%;
+      margin-top: 5rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .introduce.desc {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .introduce.desc {
+      width: 100%;
+    }
+  }
+}
+
+#slogun {
+  padding-top: 20rem;
+
+  .slogun {
+    font-family: "Dealoras";
+    position: relative;
+    font-size: 12rem;
+    color: rgba(255, 255, 255, 0.2);
+
+    p {
+      position: relative;
+      width: max-content;
+      -webkit-text-fill-color: rgba(255, 255, 255, 0.2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(
+        90deg,
+        #fff 0%,
+        #fff 50%,
+        transparent 50.1%
+      );
+      background-size: 0% 100%;
+      transform: translateY(100%);
+      transition: background-size cubic-bezier(0.1, 0.5, 0.5, 1) 0.5s;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    .slogun {
+      font-size: 8.5vw;
+    }
+  }
+}
