@@ -1,0 +1,220 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+#projectDetail {
+  padding-top: 20vw;
+
+  h3 {
+    font-size: 6rem;
+    font-weight: 600;
+    color: #000;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding: 0 var(--sidePadding);
+    margin-bottom: 9rem;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 4rem;
+      height: 4rem;
+      background: url("/img/twingkle1.svg") no-repeat center / 100%;
+      filter: brightness(0);
+    }
+  }
+
+  .img {
+    width: 100%;
+    aspect-ratio: 12 / 5;
+    border-top: 1px solid $color-black;
+    border-bottom: 1px solid $color-black;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+  .img_mo,
+  .img_tab {
+    display: none;
+  }
+  .front {
+    width: 100%;
+    aspect-ratio: 12 / 5;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .info {
+    padding: 10rem var(--sidePadding);
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12rem;
+
+    > * {
+      width: calc(50% - 6rem);
+    }
+
+    .tit {
+      font-size: 2.4rem;
+      font-weight: 500;
+      margin-bottom: 4rem;
+    }
+
+    .detail {
+      li {
+        display: flex;
+        align-items: center;
+        font-size: 2.4rem;
+
+        + li {
+          margin-top: 5px;
+        }
+
+        strong {
+          display: inline-block;
+          color: #666;
+          width: 14rem;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 20px;
+            background: #ccc;
+          }
+        }
+
+        span {
+          display: inline-block;
+          color: #666;
+          padding-left: 5rem;
+          flex: 1;
+        }
+      }
+    }
+
+    .view .desc {
+      color: #666;
+    }
+  }
+
+  .btn-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      width: 28rem;
+      height: 7rem;
+      border-radius: 50px;
+      background: #eee;
+      font-size: 2.4rem;
+      font-weight: 500;
+      color: #666;
+      transition: all 0.3s;
+
+      img {
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        background: $color-black;
+        color: $color-white;
+
+        img {
+          filter: brightness(100);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    h3 {
+      font-size: 5vw;
+    }
+
+    h3::before {
+      width: 3vw;
+      height: 3vw;
+    }
+
+    .img {
+      height: 80vh;
+      aspect-ratio: unset;
+    }
+
+    .img_pc {
+      display: none;
+    }
+
+    .img_tab {
+      display: block;
+    }
+
+    .info {
+      gap: 5rem;
+
+      > * {
+        width: 100%;
+      }
+
+      .tit {
+        margin-bottom: 3rem;
+      }
+    }
+
+    .btn-wrap a {
+      width: 25rem;
+      height: 6rem;
+      font-size: 2.2rem;
+    }
+
+    .btn-wrap a img {
+      height: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+  }
+
+  @media (max-width: 480px) {
+    padding-top: 15rem;
+
+    h3 {
+      font-size: 6vw;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    h3::before {
+      width: 4vw;
+      height: 4vw;
+    }
+
+    .img_tab {
+      display: none;
+    }
+
+    .img_mo {
+      display: block;
+    }
+  }
+}

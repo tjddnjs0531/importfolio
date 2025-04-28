@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./ProjectItem.scss";
 import { projectData } from "../data/data";
 
@@ -16,7 +17,7 @@ const ProjectItem = ({ selectedIds }) => {
             <h3>{project.title}</h3>
             <p>HTML / CSS / Javascript / Jquery</p>
           </div>
-          <a href={project.link} className="project-box-link">
+          <Link to={`/project/${project.id}`} className="project-box-link">
             <div className="project-box-front">
               <h3>{project.title}</h3>
               <div>
@@ -28,7 +29,7 @@ const ProjectItem = ({ selectedIds }) => {
             <div className="project-box-back">
               <img src={project.imageSrc_pc} alt={`${project.title} 이미지`} />
             </div>
-          </a>
+          </Link>
         </li>
       ))}
     </ul>

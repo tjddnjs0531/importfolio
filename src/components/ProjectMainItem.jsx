@@ -1,14 +1,14 @@
 import "./ProjectMainItem.scss";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-import projectImages from "../assets/img/project/projectImages";
 import { projectData } from "../data/data";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ProjectItem = ({ number, engTitle, title, link, imageSrc_pc }) => {
+const ProjectItem = ({ id, number, engTitle, title, imageSrc_pc }) => {
   return (
     <li className="project-item">
       <div className="cont">
@@ -20,9 +20,9 @@ const ProjectItem = ({ number, engTitle, title, link, imageSrc_pc }) => {
           <h4>{title}</h4>
           <p>HTML / CSS / Javascript / Jquery</p>
         </div>
-        <a href={link} className="btn-more">
+        <Link to={`/project/${id}`} className="btn-more">
           more info
-        </a>
+        </Link>
       </div>
       <div className="img">
         <img src={imageSrc_pc} alt={`${title} 이미지`} />

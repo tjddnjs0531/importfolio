@@ -43,7 +43,7 @@ const Project = () => {
             <span>c</span>
             <span>t</span>
           </h2>
-          <Link to="/projectList" className="more_prj isPc">
+          <Link to="/project" className="more_prj isPc">
             <span>All project</span>
             <span>more</span>
           </Link>
@@ -52,7 +52,7 @@ const Project = () => {
         <ProjectMainItem />
         <ProjectItem selectedIds={[1, 5, 6, 7, 8, 9, 10]} />
 
-        <Link to="/projectList" className="more_prj isMobile">
+        <Link to="/project" className="more_prj isMobile">
           <span>All project</span>
           <span>more</span>
         </Link>
